@@ -1,225 +1,67 @@
-@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap";
-/*Importando a fonte. Anteriormente ficava no href */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap');
 
-/*Implementando variáveis*/
+
 :root {
-    --color-green:#50fa7b; /*Com isso, facilitamuito a troca de cor para varios elementos */
-    --color-rocket: #7159c1;
+    --primary-color: #7159c1
 }
 
 * {
-    /* O  * Pega a configuração de tudo*/
-    padding: 0px;
-    border: 0px;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
 }
 
 body {
-    /*estilizando tags*/
-    background: #282a36;
-    font-family: 'Source Sans Pro', sans-serif;
-    /*Especificando a fonte que será usada*/
-    color: white; /*Muda a cor da fonte de tudo no body*/
-}
+    background-color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+} 
 
 header {
+    background-color: white;
+    width: 100%;
     padding: 32px;
-    border-bottom: solid #333;
-    background: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box; /*Respeita oq eu colocar de limite*/
 }
 
 .links {
-    /*Trabalhando com posicionamento de texto */
-    text-align: center;
-    /*Alinhamento de texto*/
+    font-size: 22px;
 }
 
-.links a {
-    color: white;
-    /*Colorindo o link */
-    font-size: 18px;
-    /*Trabalhando a fonte*/
-    line-height: 28px;
-    /*Trabalha a altura da linha (dica: usar 10px a mais que o tamanho da font)*/
-    margin: 0 16px;
-    /*Margem lateral dos links de 16px*/
+.links a + a { /*com isso ele pega somente o segundo a */
+    margin-left: 32px;
+    
+}
+
+.links a { 
     text-decoration: none;
-    /*Desabilita todos os decorations (underline)*/
-}
-
-.links a:hover {
-    /*Muda a color quando se passa o mouse por cima*/
-    color: var(--color-green);
-    transition: 700ms;
-    /*tempo para mudar a cor*/
-}
-
-#wrapper {
-    /*estilizando id*/
-    text-align: center;
-    padding: 32px;
-}
-
-#wrapper img {
-    border-radius: 50%;
-    /*Arredondando as bordas da img */
-    border: 5px solid var(--color-green);
-    /*Adiciona uma borda a imagem*/
-    margin-bottom: 32px;
-    height: 300px; /*Definindo tamanho para miha imagem */
-}
-
-#wrapper h1 {
-    font-size: 42px;
-    line-height: 52px;
-    font-weight: bold; 
-}
-
-#wrapper h2 {
-    font-size: 24px; 
-    line-height: 34px;
-    font-weight: normal;
-    margin-top: 8px;
-    opacity: 0.8;
-}
-
-#wrapper p {
-    max-width: 500px; /*Largura maxima para o p */
-    margin: 32px auto; /*margem top e botton 32px, e deixa a margem das laterais automáticas (com isso,  o alinhamento do eixo principal volta ao normal)*/
-    font-size: 24px;
-    line-height: 34px;
-}
-
-#wrapper p a { /*Define a cor para o link da Rocketseat*/
-    color: var(--color-green );
-    
-}
-
-#links-footer a {
-    border-bottom: 1px solid var(--color-green);
-}
-
-/*=== CARDS ===*/
-
-.cards { 
-    max-width: 800px; /*Limite máximo de largura do card*/
-    margin: 0 auto; /*alinha o card ao meio*/
-    display: grid; /*Grid serve para trabalhar com o eixo na horizontal*/
-    grid-template-columns: 1fr 1fr 1fr ; /*Dizendo quantas colunas que quero. E o "fr" quer dizer que o tamanho é flexivel  */
-    gap: 20px; /*Da um espaço  entre os elementos do grid  */
-}
-
-.card {
-    background-color: var(--color-rocket );
-    display: grid; /*Adicionando gri para alinhar os componentes */
-    cursor: pointer; /*Quando passar o mouse em cima ele vira uma mãozinha*/
-}
-
-.card__image-container img  { /*Com a largura da imagem em 100%. Ela vai respeitar o tamanho maximo dos pais. (800px no caso )*/
-    width: 100%;
-}
-
-.card_content,
-.card_info { /*Aplica o mesmo estilo para 2 classes ao mesmo tempo*/
-    padding: 24px;
-}   
-
-.card_info {
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    align-items: center; /*Alinha os items ao centro. Funciona somente com desplay*/
-}
-
-.card_price {
-     background-color: var(--color-rocket); 
-      filter: brightness(90%); /*Alterando o brilho da class*/
-      padding:  5px 20px;
-      border-radius: 20px;
-      text-align: center ;
-}
-
-/*=== MODAL ===*/
-
-.modal-overlay {
-     background-color: rgba(0, 0, 0, 0.7); 
-     width: 100%; /*Diz para o modal ocular 100%  na largura e abaixo na altura*/
-     height: 100%;
-     position: fixed; /*Fixa a posição do modal*/
-     top: 0;  /*Fixa o modal no top com 0 de espaço (ocupando 100% da tela )*/
-     opacity: 0 ; /*? Lembrando que tenho que desabilitar a "opacity"  e o "visibility" quando quero testar se o modal está funcionando */
-     visibility: hidden; /*A visibilidade do modal tem que estar escondida */
-}
-
-.modal {
-     background-color: white;
-     width: 90%;
-     height: 90%;
-     margin: 5vh auto; /* 5vh significa a altura em relação a tela do dispositivo */
-     position: relative; /* Serve para limitar o espaço onde o ícone pode ficar */
-     padding-left: 8px; /** Arrumando posicionamento do iframe*/
-}
-
-.close-modal {
-    color: black;    /*Dando uma cor pro icone*/ 
-    position: absolute; /*posicionamento absoluto em toda a tela */
-    right: 8px ; /*necessário colocar o pai como relativo para ele respeitar somente o tamanho do modal.*/
-    top: 8 px; /*limitandoa distancia do topo que o icone deve ficar */
-    cursor: pointer; /*Quando o mouse pasar por cima do icone, ele vira uma mão para indicar que é clicável */
-     
-} 
-
-/*=== MODAL.ACTIVE ===*/
-
-.modal-overlay.active  {   
-     opacity: 1 ;
-     visibility: visible ;
-}
-
-iframe {
-     
-
-    /*padding: 10px;*/
-    width: 98%;
-    height: 90%;
-    position: absolute;
-    top: 5%;
-    margin: 0 auto;
-    
-}
-
-
-/* === FEATURED === */
-
-.featured-wrapper.card__image-container { /*Adicionando o position somente quando a classe tiver o featured*/
+    color: #777;   
     position: relative;
 }
 
-.featured {
-    position: absolute; /*Para se manter dentro da imagem ele tem que ficar com position absolute. Mas depende do elemento pai ser relativo*/
-    right: 5px;
-    background: #f7d05f;
-    color: #111;
-    padding: 2px 8px;
-    border-radius: 16px;
-    top: -6px;
+.links a.active {
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
+.links a:hover {
+    color: var(--primary-color);
 
-/* === VIDEO PAGE ===*/
-.video {
-    margin: 0 auto;
-    max-width: 800px; 
-} 
-
-.card__video-container {
-    position: relative; 
-    padding-top: 62.6%;
 }
 
-.card__video-container iframe{
-    width: 100%;
-    height: 100%;
+.links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
     position: absolute;
-    top: 0%;
-    
+    left: 0;
+    bottom: -4px;
+}
+
+.links a:hover::after {
+    width: 100%;
+    transition: width 200ms cubic-bezier(0.75, 0.14, 0.61, 0.98) ;
+
 }
