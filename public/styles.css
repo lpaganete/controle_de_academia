@@ -2,7 +2,8 @@
 
 
 :root {
-    --primary-color: #7159c1
+    --primary-color: #7159c1;
+    --secundary-color: #f7df1e;
 }
 
 * {
@@ -74,7 +75,7 @@ header {
 .card {
     background-color: white;
     width: 800px;
-    height: 400px;
+    min-height: 400px; /*Altura minima*/
     margin: 45px auto; /*alinhando o card ao meio*/
     /*grid dividido ao meio*/
     display:grid;
@@ -97,4 +98,55 @@ header {
     to {
         opacity: 1;
     }
+}
+
+
+/*=== Details ===*/
+
+ .details {
+     padding: 32px;
+ }
+
+ .details .item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0px;
+}
+
+.details .item:last-child { /*propiedade las-child pega o último elemento com a class item*/
+    border: none ;
+}
+
+.details h3,
+.details .item div:nth-child(1) { /*Vai entrar dentro do details => item e irá  pegar somente a primeira div*/
+    font-size: 14px;
+    line-height: 24px;
+    color: #777;
+    letter-spacing: 0.7px; /*Espaçamento entre as letras*/
+    font-weight: normal ;
+}
+
+.details .item div:nth-child(2) { /*Vai entrar dentro do details => item e irá  pegar somente a segunda div */
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase; /*fica em caixa alta*/
+    font-weight: bold;
+    color: var(--primary-color) ;
+}
+
+.details .item div:nth-child(2) span {
+    padding: 8px 16px;
+    background-color: var(--secundary-color);
+    border-radius: 16px;
+    color: #777;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block; /*vai ocupar toda a linha mas com os 2 itens na mesma linha e respeita a margin*/
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    /*display:  block; /*faz com que ele pegue toda a linha*/
 }
