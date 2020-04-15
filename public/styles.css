@@ -25,6 +25,8 @@ header {
     box-sizing: border-box; /*Respeita oq eu colocar de limite*/
 }
 
+
+/*=== LINKS ===*/
 .links {
     font-size: 22px;
 }
@@ -64,4 +66,17 @@ header {
     width: 100%;
     transition: width 2 00ms cubic-bezier(0.75, 0.14, 0.61, 0.98) ;
 
+}
+
+
+/*=== CARD ===*/
+
+.card {
+    background-color: white;
+    width: 800px;
+    height: 400px;
+    margin: 45px auto; /*alinhando o card ao meio*/
+     
+    display:grid;
+    grid-template-columns: 1fr 1fr;
 }
