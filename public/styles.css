@@ -150,3 +150,36 @@ header {
     font-size: 12px;
     /*display:  block; /*faz com que ele pegue toda a linha*/
 }
+
+/*=== FORM ===*/
+
+input {
+    width: 100%;
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+
+input[type="radio"] { /*Selecionando somente o tipo radio*/
+    width: initial; /*vai manter o texto na mesma linha do radio*/
+    margin-right: 4px;
+
+}
+
+input::placeholder { /*mexendo somente nos placeholder*/
+     font-size: 16px;
+     font-weight: normal;
+
+}
+
+button[type="submit"] {
+    padding: 8px 32px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+}
