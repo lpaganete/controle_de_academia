@@ -5,10 +5,11 @@ const routes = require("./routes") //importando arquivo onde ficam as rotas
 
 const server = express()
 
- 
-//Configurando o express para renderizar o css
-//abaixo dizemos para o express ler arquivos statics e que eles estão na pasta public
-server.use(express.static('public'))  
+//Responsavel por fazer funcionar o req.body(trazer do frontend pelo metodo post os dados do formulario para o backend)
+server.use(express.urlencoded({extended: true})) /
+
+
+servr.use(express.static('public'))  
 
 server.use(routes)
 
