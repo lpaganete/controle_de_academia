@@ -6,10 +6,10 @@ const routes = require("./routes") //importando arquivo onde ficam as rotas
 const server = express()
 
 //Responsavel por fazer funcionar o req.body(trazer do frontend pelo metodo post os dados do formulario para o backend)
-server.use(express.urlencoded({extended: true})) /
+server.use(express.urlencoded({extended: true})) 
 
 
-servr.use(express.static('public'))  
+server.use(express.static('public'))  
 
 server.use(routes)
 
