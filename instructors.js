@@ -22,7 +22,7 @@ exports.post = function (req, res) {
         //a cada vez que eu salvar ele irá armazenar os objetos dentro do data.json dentro de um array de objetos
         data.instructors.push(req.body) //usando o objeto JSON como um objeto JS
         //depois de verificar se os campos estão preenchidos ele irá salvar os dados em um arquivo json
-        fs.writeFile("data.json", JSON.stringify(data), function(err) { //definindo o arquivo, dps como ele ira salvar no arquivo, tratando erro caso não salve
+        fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) { //definindo o arquivo, dps como ele ira salvar no arquivo, tratando erro caso não salve
             if (err) return res.send("Write file error!")
 
             return res.redirect("/instructors")

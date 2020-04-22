@@ -1,1 +1,16 @@
-{"instructors":[{"avatar_url":"http://google.com","name":"Luis","gender":"M","services":"crossfit"}]}
+{
+  "instructors": [
+    {
+      "avatar_url": "http://google.com",
+      "name": "Luis",
+      "gender": "M",
+      "services": "crossfit"
+    },
+    {
+      "avatar_url": "http://youtube.com",
+      "name": "Carlim",
+      "gender": "M",
+      "services": "musculação"
+    }
+  ]
+}
