@@ -24,7 +24,8 @@ exports.post = function (req, res) {
         //trazendo a data da hr de criação do cadastro do instrutor
         req.body.created_at = Date.now()
 
- 
+        //criando id para cada objeto. Estou criando no data.instructors o atributo id e a cada um que for criado ele vai somar 1 nesse campo. Com o constructor Number eu garanto que o id vai ser um número. isso servirá para poder editar o campo
+        req.body.id = Number(data.instructors.length + 1)
 
 
         //a cada vez que eu salvar ele irá armazenar os objetos dentro do data.json dentro de um array de objetos

@@ -2,11 +2,21 @@
   "instructors": [
     {
       "avatar_url": "http://google.com",
-      "name": "ze",
-      "birth": 1317254400000,
+      "name": "Luis",
+      "birth": 954201600000,
       "gender": "M",
-      "services": "corrida",
-      "created_at": 1587592624865
+      "services": "crossfit",
+      "created_at": 1587593258899,
+      "id": 1
+    },
+    {
+      "avatar_url": "http://google.com",
+      "name": "ze",
+      "birth": 1161302400000,
+      "gender": "M",
+      "services": "asiuahsuh",
+      "created_at": 1587593303417,
+      "id": 2
     }
   ]
 }
