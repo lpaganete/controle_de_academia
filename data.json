@@ -2,15 +2,11 @@
   "instructors": [
     {
       "avatar_url": "http://google.com",
-      "name": "Luis",
+      "name": "ze",
+      "birth": 1317254400000,
       "gender": "M",
-      "services": "crossfit"
-    },
-    {
-      "avatar_url": "http://youtube.com",
-      "name": "Carlim",
-      "gender": "M",
-      "services": "musculação"
+      "services": "corrida",
+      "created_at": 1587592624865
     }
   ]
 }

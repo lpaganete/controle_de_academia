@@ -19,6 +19,14 @@ exports.post = function (req, res) {
     
         }
 
+        //Mudando o formato da hr para milisegundos e trazendo para o data.json
+        req.body.birth = Date.parse(req.body.birth)
+        //trazendo a data da hr de criação do cadastro do instrutor
+        req.body.created_at = Date.now()
+
+ 
+
+
         //a cada vez que eu salvar ele irá armazenar os objetos dentro do data.json dentro de um array de objetos
         data.instructors.push(req.body) //usando o objeto JSON como um objeto JS
         //depois de verificar se os campos estão preenchidos ele irá salvar os dados em um arquivo json
