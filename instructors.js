@@ -1,47 +1,56 @@
 
-const fs = require('fs') //importando a funcionalidade 
+const fs = require('fs') //importando a funcionalidade  fs
 const data = require("./data.json") //pegando o arquivo data.json 
 //exportando functions do crud
-//create
+// *** CREATE ****/
 exports.post = function (req, res) {
-   
-        //req.query funciona com get
-        //req.body funciona com post
 
-        //Object é um constructor todos os campos são obrigatórios
-        const keys = Object.keys(req.body) //pega as chaves do array
-    
-        for (key of keys) {
-            //req.body.avatar_url = ""
-            if (req.body[key] == "") {
-                return res.send("Please, fill all fields!")
-            }
-    
+    //=== VALIDAÇÂO ===
+    const keys = Object.keys(req.body) //pega as chaves do array
+
+    for (key of keys) {
+        //req.body.avatar_url = ""
+        if (req.body[key] == "") {
+            return res.send("Please, fill all fields!")
         }
+    }
 
-        //Mudando o formato da hr para milisegundos e trazendo para o data.json
-        req.body.birth = Date.parse(req.body.birth)
-        //trazendo a data da hr de criação do cadastro do instrutor
-        req.body.created_at = Date.now()
-
-        //criando id para cada objeto. Estou criando no data.instructors o atributo id e a cada um que for criado ele vai somar 1 nesse campo. Com o constructor Number eu garanto que o id vai ser um número. isso servirá para poder editar o campo
-        req.body.id = Number(data.instructors.length + 1)
+    //desestruturando o req.body. O req.bory são os campos que vieram do form no front-end
+    let{ avatar_url, birth, name, services, gender} = req.body //usei a variavel let pois ela pode mudar
 
 
-        //a cada vez que eu salvar ele irá armazenar os objetos dentro do data.json dentro de um array de objetos
-        data.instructors.push(req.body) //usando o objeto JSON como um objeto JS
-        //depois de verificar se os campos estão preenchidos ele irá salvar os dados em um arquivo json
-        fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) { //definindo o arquivo, dps como ele ira salvar no arquivo, tratando erro caso não salve
-            if (err) return res.send("Write file error!")
-
-            return res.redirect("/instructors")
-        }) //callback function é uma função que se passa dentro de uma função
+    //=== TRATAMENTO DOS DADOS ===//
+    birth = Date.parse(req.body.birth) //Mudando o formato da hr para milisegundos e trazendo para o data.json
+    const created_at = Date.now() //trazendo a data da hr de criação do cadastro do instrutorpois (não existe no front)
+    const id = Number(data.instructors.length + 1) //criando id para cada objeto. (não existe no front)
 
 
-        //return res.send(req.body) //esta variavel foi configurada no server.js  
+    //=== ENVIANDO DADOS PARA DENTRO DO DATA ===//
+    //A cada vez que eu salvar ele irá armazenar os objetos dentro do data.json dentro de um array de objetos
+    data.instructors.push({//usando o objeto JSON como um objeto JS
+        
+        id,
+        avatar_url,
+        name,
+        birth,
+        gender, 
+        services,
+        created_at,
+        
+    }) 
+
+    //Depois de verificar se os campos estão preenchidos ele irá salvar os dados em um arquivo json
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) { //Formatando arquivo data.json
+        if (err) return res.send("Write file error!")
+
+        return res.redirect("/instructors") //Depois de tudo salvo dentro do data.json, ele retorna para página instructors
+    }) 
+
+
+    
 }
 
 
-//update
+//*** UPDATE ****/
 
-//delete
+//*** DELETE ****/

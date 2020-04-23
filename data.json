@@ -1,22 +1,13 @@
 {
   "instructors": [
     {
+      "id": 1,
       "avatar_url": "http://google.com",
       "name": "Luis",
-      "birth": 954201600000,
+      "birth": 814665600000,
       "gender": "M",
-      "services": "crossfit",
-      "created_at": 1587593258899,
-      "id": 1
-    },
-    {
-      "avatar_url": "http://google.com",
-      "name": "ze",
-      "birth": 1161302400000,
-      "gender": "M",
-      "services": "asiuahsuh",
-      "created_at": 1587593303417,
-      "id": 2
+      "services": "crossfit, musculação",
+      "created_at": 1587655233253
     }
   ]
 }
