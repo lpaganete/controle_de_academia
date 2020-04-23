@@ -1,7 +1,9 @@
 
 const fs = require('fs') //importando a funcionalidade  fs
 const data = require("./data.json") //pegando o arquivo data.json 
-//exportando functions do crud
+
+
+
 // *** CREATE ****/
 exports.post = function (req, res) {
 
@@ -47,6 +49,25 @@ exports.post = function (req, res) {
     }) 
 
 
+    
+}
+
+// *** SHOW ****/ (Listando instrutores)
+exports.show =function (req, res) {
+    //req.query.id seria com o ?=...
+    //req.body
+    //req.params utilizando agr
+
+    const {id} = req.params //retirando o id e fazendo com que ele seja uma variável
+
+    const foundInstructor = data.instructors.find(function(instructor) {
+        return instructor.id == id
+    }) 
+
+    if (!foundInstructor) {
+        return res.send("Instructor not found!")
+    }
+    return res.send(foundInstructor)
     
 }
 
