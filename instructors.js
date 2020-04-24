@@ -1,8 +1,7 @@
 
 const fs = require('fs') //importando a funcionalidade  fs
 const data = require("./data.json") //pegando o arquivo data.json 
-
-
+const { age } = require('./utils') //importando o objeto age que trata as datas
 
 // *** CREATE ****/
 exports.post = function (req, res) {
@@ -47,8 +46,6 @@ exports.post = function (req, res) {
 
         return res.redirect("/instructors") //Depois de tudo salvo dentro do data.json, ele retorna para página instructors
     }) 
-
-
     
 }
 
@@ -68,14 +65,15 @@ exports.show = function (req, res) {
         return res.send("Instructor not found!")
     }
 
+           
+
     //=== Tratando dados para mandar para o front ===//
     const instructor = {
         ...foundInstructor,
-        age: "",
+        age: age(foundInstructor.birth),
         //split transforma a string em array
         services: foundInstructor.services.split(","),  
         created_at: "",
-
     }
 
     return res.render("instructors/show", {instructor: instructor})

@@ -35,6 +35,25 @@
       "gender": "F",
       "services": "jump, luta",
       "created_at": 1587665676360
+    },
+    {
+      "id": 5,
+      "avatar_url": "https://upload.wikimedia.org/wikipedia/pt/f/f1/Scrooge_McDuck.jpg",
+      "name": "Pato",
+      "birth": 704419200000,
+      "gender": "M",
+      "services": "crossfit",
+      "created_at": 1587669062583
+    },
+    {
+      "id": 6,
+      "avatar_url": "https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/3/3/0/4/330491c4b4ea2a2588bb7f63286e7bcb.jpg",
+      "name": "Tião Carreiro",
+      "birth": 468115200000,
+      "gender": "M",
+      "services": "crossfit, dança",
+      "created_at": 1587672379986
     }
+    
   ]
 }
