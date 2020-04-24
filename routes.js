@@ -10,12 +10,18 @@ routes.get('/instructors', function(req, res) {
     return res.render("instructors/index")
 })
 
+//Rota para CRIAR instrutor
 routes.get('/instructors/create', function(req, res) {
     return res.render("instructors/create")
 })
 
-//Criando rota para listar (show)
+//Criando rota para LISTAR (show)
 routes.get('/instructors/:id', instructors.show)
+
+//Rota para EDITAR instrutor
+routes.get('/instructors/:id/edit', function(req,res) {
+    return res.render("instructors/edit")
+})
 
 //Configurando rota para trazer os dados do formulário para o backend
 routes.post("/instructors", instructors.post) //chando metodo post 
