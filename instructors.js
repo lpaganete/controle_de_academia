@@ -53,7 +53,7 @@ exports.post = function (req, res) {
 }
 
 // *** SHOW ****/ (Listando instrutores)
-exports.show =function (req, res) {
+exports.show = function (req, res) {
     //req.query.id seria com o ?=...
     //req.body
     //req.params utilizando agr
@@ -64,14 +64,27 @@ exports.show =function (req, res) {
         return instructor.id == id
     }) 
 
-    if (!foundInstructor) {
+    if (!foundInstructor) { //se nao tiver o id que foi solicitado 
         return res.send("Instructor not found!")
     }
-    return res.send(foundInstructor)
+
+    //=== Tratando dados para mandar para o front ===//
+    const instructor = {
+        ...foundInstructor,
+        age: "",
+        //split transforma a string em array
+        services: foundInstructor.services.split(","),  
+        created_at: "",
+
+    }
+
+    return res.render("instructors/show", {instructor: instructor})
     
+
+
 }
 
-
+ 
 //*** UPDATE ****/
 
 //*** DELETE ****/
