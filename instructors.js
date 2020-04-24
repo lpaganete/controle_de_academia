@@ -73,7 +73,7 @@ exports.show = function (req, res) {
         age: age(foundInstructor.birth),
         //split transforma a string em array
         services: foundInstructor.services.split(","),  
-        created_at: "",
+        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at), //formatando a data para formato do Brasil
     }
 
     return res.render("instructors/show", {instructor: instructor})
