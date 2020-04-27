@@ -86,9 +86,18 @@ exports.show = function (req, res) {
 //*** UPDATE ****/
 exports.edit = function(req,res) {
 
+    //reaproveitando estre trecho do show
+    const {id} = req.params 
 
-    
-    return res.render("instructors/edit", {})
+    const foundInstructor = data.instructors.find(function(instructor) {
+        return instructor.id == id
+    }) 
+
+    if (!foundInstructor) { //se nao tiver o id que foi solicitado 
+        return res.send("Instructor not found!")
+    }
+     
+    return res.render("instructors/edit", {instructor: foundInstructor})
 }
 
 //*** DELETE ****/
