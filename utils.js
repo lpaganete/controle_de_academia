@@ -16,6 +16,24 @@ module.exports = {
         }
     
         return age 
-    } 
+    },
+
+    //transformando data que esta em ms no banco em data que o html entenda
+    date: function(timestamp) {
+        const date = new Date(timestamp)
+
+        //yyyy
+        const year =  date.getUTCFullYear()
+        
+        //mm
+        const month = `0${date.getUTCMonth() + 1}`.slice(-2) //estemétodo está pegando somente os 2 últimos numeros 
+
+        //dd
+        const day = `0${date.getUTCDate()}`.slice(-2)
+        
+        //return yyy-mm-dd
+        return  (`${year}-${month}-${day}`)
+
+    }
 
 }

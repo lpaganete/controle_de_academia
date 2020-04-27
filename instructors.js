@@ -1,7 +1,7 @@
 
 const fs = require('fs') //importando a funcionalidade  fs
 const data = require("./data.json") //pegando o arquivo data.json 
-const { age } = require('./utils') //importando o objeto age que trata as datas
+const { age, date } = require('./utils') //importando o objeto age que trata as datas
 
 // *** CREATE ****/
 exports.post = function (req, res) {
@@ -73,7 +73,7 @@ exports.show = function (req, res) {
         age: age(foundInstructor.birth),
         //split transforma a string em array
         services: foundInstructor.services.split(","),  
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at), //formatando a data para formato do Brasil
+        created_at: new Intl.DateTimeFormat("pt-br").format(foundInstructor.created_at), //formatando a data para formato do Brasil
     }
 
     return res.render("instructors/show", {instructor: instructor})
@@ -96,8 +96,18 @@ exports.edit = function(req,res) {
     if (!foundInstructor) { //se nao tiver o id que foi solicitado 
         return res.send("Instructor not found!")
     }
+
+    //
+    // instructor.birth = 814665600000
+    // date(instructor.birth)
+    // return yyy-mm-dd
+
+    const instructor = {
+        ...foundInstructor,
+        birth: date(foundInstructor.birth) 
+    }
      
-    return res.render("instructors/edit", {instructor: foundInstructor})
+    return res.render("instructors/edit", {instructor})
 }
 
 //*** DELETE ****/
