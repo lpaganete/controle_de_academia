@@ -2,6 +2,7 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
 const routes = require("./routes") //importando arquivo onde ficam as rotas
+const methodOverride = require('method-override')
 
 const server = express()
 
@@ -11,7 +12,9 @@ server.use(express.urlencoded({extended: true}))
 
 server.use(express.static('public'))  
 
+server.use(methodOverride('_method')) //serve para sobrescrever o tipo do médodo que estou usando
 server.use(routes)
+
 
 //configurando template engine
 server.set("view engine", "njk") 
