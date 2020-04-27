@@ -84,5 +84,11 @@ exports.show = function (req, res) {
 
  
 //*** UPDATE ****/
+exports.edit = function(req,res) {
+
+
+    
+    return res.render("instructors/edit", {})
+}
 
 //*** DELETE ****/

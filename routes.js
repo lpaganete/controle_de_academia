@@ -19,9 +19,7 @@ routes.get('/instructors/create', function(req, res) {
 routes.get('/instructors/:id', instructors.show)
 
 //Rota para EDITAR instrutor
-routes.get('/instructors/:id/edit', function(req,res) {
-    return res.render("instructors/edit")
-})
+routes.get('/instructors/:id/edit', instructors.edit)
 
 //Configurando rota para trazer os dados do formulário para o backend
 routes.post("/instructors", instructors.post) //chando metodo post 
