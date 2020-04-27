@@ -50,7 +50,7 @@ exports.post = function (req, res) {
 }
 
 // *** SHOW ****/ (Listando instrutores)
-exports.show = function (req, res) {
+exports.show = function (req, res) { 
     //req.query.id seria com o ?=...
     //req.body
     //req.params utilizando agr
@@ -83,7 +83,7 @@ exports.show = function (req, res) {
 }
 
  
-//*** UPDATE ****/
+//*** EDIT (Página para editar) ****/
 exports.edit = function(req,res) {
 
     //reaproveitando estre trecho do show
@@ -108,6 +108,40 @@ exports.edit = function(req,res) {
     }
      
     return res.render("instructors/edit", {instructor})
+}
+
+//*** PUT (salvar as alterações no back-end) ****/
+exports.put = function(req, res) {
+    //reaproveitando estre trecho do edit
+    const {id} = req.body
+    let index = 0
+
+    //verificando se o instrutor foi cadastrado
+    const foundInstructor = data.instructors.find(function(instructor, foundIndex ) {
+        if (id == instructor.id){ //adicionando um index ao objeto
+            index = foundIndex
+            return true
+        }
+    }) 
+    //se o instrutor não foi cadastrado, ele retorn uma mensagems
+    if (!foundInstructor)   return res.send("Instructor not found!")
+    
+    //espalhando dentro do objeto todos os dados que estão no data e todos os dados que estão no req.body (front-end)
+    const instructor = {
+        ...foundInstructor,
+        ...req.body,
+        birth: Date.parse(req.body.birth)
+    }
+
+    //agora meus  dados estão ok para serem colocados dentro do objjeto de data.js
+
+    data.instructors[index] = instructor //adicionando no data somente o instructor que eu alterei
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if(err) return res.send("Write error!")
+
+        return res.redirect(`/instructors/${id}`) //quando salvar o arquivo ele redireciona para a pagina do instrutor que foi alterado
+    })
 }
 
 //*** DELETE ****/

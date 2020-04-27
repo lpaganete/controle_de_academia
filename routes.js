@@ -24,6 +24,14 @@ routes.get('/instructors/:id/edit', instructors.edit)
 //Configurando rota para trazer os dados do formulário para o backend
 routes.post("/instructors", instructors.post) //chando metodo post 
 
+// HTTP VERBS
+// GET : Receber RESOURCE
+// POST : Criar ou salvar
+// PUT : Atualizar
+// DELETE : Deletar
+
+routes.put("/instructors", instructors.put )
+
 routes.get('/members', function(req, res) {
     return res.send("members")
 })
