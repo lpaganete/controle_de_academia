@@ -49,7 +49,7 @@ exports.post = function (req, res) {
     
 }
 
-// *** SHOW ****/ (Listando instrutores)
+// *** SHOW ****/
 exports.show = function (req, res) { 
     //req.query.id seria com o ?=...
     //req.body
@@ -145,3 +145,18 @@ exports.put = function(req, res) {
 }
 
 //*** DELETE ****/
+exports.delete = function(req, res) {
+    const {id} = req.body //pegando o id de dentro do body
+    
+    const filteredInstructors  = data.instructors.filter(function(instructor) { 
+        //filter funciona como uma estrutura de repetição. Para cada instrutor, ele vai rodar a function e vai enviar para dentro o instructor. tudo que a função retornar true, ela vai colocar dentro do novo array filteredInstructors. tudo que for falso ele retira de dentro do novo array.
+        return instructor.id != id  //se o id for diferente do que o que esta desmembrado, ele vai colocar dentro do novo array (true)
+    })
+
+    data.instructors = filteredInstructors //recebendo os dados atualizados do novo array
+    
+    fs.writeFile("data.json", JSON.stringify(data, null, 2 ), function(err) {
+        if (err) return res.send("Write file error!")
+        return res.redirect("/instructors")
+    })
+}

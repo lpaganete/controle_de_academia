@@ -32,6 +32,9 @@ routes.post("/instructors", instructors.post) //chando metodo post
 
 routes.put("/instructors", instructors.put )
 
+//deletar
+routes.delete("/instructors", instructors.delete)
+
 routes.get('/members', function(req, res) {
     return res.send("members")
 })

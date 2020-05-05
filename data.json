@@ -53,15 +53,6 @@
       "gender": "M",
       "services": "crossfit, dança",
       "created_at": 1587672379986
-    },
-    {
-      "id": "7",
-      "avatar_url": "http://google.com",
-      "name": "Zezinho",
-      "birth": 683596800000,
-      "gender": "M",
-      "services": "crossfit",
-      "created_at": 1587750985210
     }
   ]
 }
