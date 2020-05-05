@@ -55,12 +55,12 @@
       "created_at": 1587672379986
     },
     {
-      "id": 7,
+      "id": "7",
       "avatar_url": "http://google.com",
-      "name": "Ze",
-      "birth": 1220140800000,
+      "name": "Zezinho",
+      "birth": 683596800000,
       "gender": "M",
-      "services": "teste",
+      "services": "crossfit",
       "created_at": 1587750985210
     }
   ]
