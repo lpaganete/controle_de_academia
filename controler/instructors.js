@@ -3,6 +3,10 @@ const fs = require('fs') //importando a funcionalidade  fs
 const data = require("../data.json") //pegando o arquivo data.json 
 const { age, date } = require('../utils') //importando o objeto age que trata as datas
 
+exports.index = function(req, res) {
+    return res.render("instructors/index", { instructors: data.instructors })
+}
+
 // *** CREATE ****/
 exports.post = function (req, res) {
 

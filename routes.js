@@ -10,9 +10,7 @@ routes.get('/', function(req, res) {
 
 //== INSTRUCTORS ==
 
-routes.get('/instructors', function(req, res) {
-    return res.render("instructors/index")
-})
+routes.get('/instructors', instructors.index)
 
 //Rota para CRIAR instrutor
 routes.get('/instructors/create', function(req, res) {
