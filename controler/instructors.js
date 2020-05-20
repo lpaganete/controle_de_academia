@@ -134,7 +134,8 @@ exports.put = function(req, res) {
     const instructor = {
         ...foundInstructor,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
     }
 
     //agora meus  dados estão ok para serem colocados dentro do objjeto de data.js

@@ -28,8 +28,8 @@
       "created_at": 1587665676360
     },
     {
-      "id": "4",
-      "avatar_url": "http://google.com",
+      "id": 4,
+      "avatar_url": "http://google2.com",
       "name": "Tioa",
       "birth": 930355200000,
       "gender": "F",
