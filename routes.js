@@ -13,9 +13,7 @@ routes.get('/', function(req, res) {
 routes.get('/instructors', instructors.index)
 
 //Rota para CRIAR instrutor
-routes.get('/instructors/create', function(req, res) {
-    return res.render("instructors/create")
-})
+routes.get('/instructors/create', instructors.create)
 
 //Criando rota para LISTAR (show)
 routes.get('/instructors/:id', instructors.show)
@@ -24,7 +22,7 @@ routes.get('/instructors/:id', instructors.show)
 routes.get('/instructors/:id/edit', instructors.edit)
 
 //Configurando rota para trazer os dados do formulário para o backend
-routes.post("/instructors", instructors.post) //chando metodo post 
+routes.post("/instructors", instructors.post) 
 
 routes.put("/instructors", instructors.put )
 
@@ -35,14 +33,10 @@ routes.delete("/instructors", instructors.delete)
 //-----------------------------------------------------------------------------------------
 //== MEMBERS ==
 
-routes.get('/members', function(req, res) {
-    return res.render("members/index")
-})
+routes.get('/members', members.index)
 
 //Rota para CRIAR 
-routes.get('/members/create', function(req, res) {
-    return res.render("members/create")
-})
+routes.get('/members/create', members.create)
 
 //Criando rota (show)
 routes.get('/members/:id', members.show)
@@ -51,7 +45,7 @@ routes.get('/members/:id', members.show)
 routes.get('/members/:id/edit', members.edit)
 
 //Configurando rota para trazer os dados do formulário para o backend
-routes.post("/members", members.post) //chando metodo post 
+routes.post("/members", members.post) 
 
 routes.put("/members", members.put )
 

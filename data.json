@@ -1,4 +1,5 @@
 {
+  "members": [],
   "instructors": [
     {
       "id": 1,
@@ -53,6 +54,15 @@
       "gender": "M",
       "services": "crossfit, dança",
       "created_at": 1587672379986
+    },
+    {
+      "id": 7,
+      "avatar_url": "http://google",
+      "name": "Tião",
+      "birth": 1590105600000,
+      "gender": "M",
+      "services": "crossfit",
+      "created_at": 1589999698409
     }
   ]
 }

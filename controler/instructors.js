@@ -7,6 +7,10 @@ exports.index = function(req, res) {
     return res.render("instructors/index", { instructors: data.instructors })
 }
 
+exports.create = function(req, res) {
+    return res.render("instructors/create")
+}
+
 // *** CREATE ****/
 exports.post = function (req, res) {
 

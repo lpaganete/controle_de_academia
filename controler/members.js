@@ -3,6 +3,14 @@ const fs = require('fs') //importando a funcionalidade  fs
 const data = require("../data.json") //pegando o arquivo data.json 
 const { age, date } = require('../utils') //importando o objeto age que trata as datas
 
+exports.index = function(req, res) {
+    return res.render("members/index", { members: data.members })
+}
+
+exports.create = function(req, res) {
+    return res.render("members/create")
+}
+
 // *** CREATE ****/
 exports.post = function (req, res) {
 
@@ -71,9 +79,6 @@ exports.show = function (req, res) {
     const member = {
         ...foundMember,
         age: age(foundMember.birth),
-        //split transforma a string em array
-        services: foundMember.services.split(","),  
-        created_at: new Intl.DateTimeFormat("pt-br").format(foundMember.created_at), //formatando a data para formato do Brasil
     }
 
     return res.render("members/show", {member: member})
@@ -110,7 +115,7 @@ exports.edit = function(req,res) {
     return res.render("members/edit", {member})
 }
 
-//*** PUT (salvar as alterações no back-end) ****/
+//*** PUT (salvar oq foi editado no back-end) ****/
 exports.put = function(req, res) {
     //reaproveitando estre trecho do edit
     const {id} = req.body
@@ -130,7 +135,8 @@ exports.put = function(req, res) {
     const member = {
         ...foundMember,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
     }
 
     //agora meus  dados estão ok para serem colocados dentro do objjeto de data.js
