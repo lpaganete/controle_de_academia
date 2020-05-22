@@ -8,6 +8,14 @@
       "gender": "M",
       "services": "acadeimia",
       "created_at": 1590005529438
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://teste.com",
+      "name": "teste1",
+      "birth": 875577600000,
+      "gender": "M",
+      "created_at": 1590171403239
     }
   ],
   "instructors": [

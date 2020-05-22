@@ -13,56 +13,8 @@
            
             <h3>Novo membro</h3>
 
-            <div class="item">
-                <div>Novo Instrutor </div>
-                <div><!--com o name, eu consgo pegar os dados do meu post-->
-                    <input 
-                        type="url" 
-                        name="avatar_url" 
-                        placeholder="http://"
-                    >
-                </div>
-            </div>
+            {% include 'instructors/fields.njk' %}
 
-            <div class="item">
-                <div>Instrutor</div>
-                <div><!--com o name, eu consgo pegar os dados do meu post-->
-                    <input 
-                        type="text" 
-                        name="name"
-                        placeholder="Nome do instrutor"
-                    >
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Data de nascimento</div>
-                <input 
-                    type="date"  
-                    name="birth"
-                >
-            </div>
-
-            <div class="item">
-                <div>Sexo</div>
-                <div>
-                    <span><input type="radio" name="gender" value="M" checked>Masculino</span>
-                    <span><input type="radio" name="gender" value="F">Feminino</span>
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Área de atuação</div>
-                <div>
-                    <input 
-                        type="text" 
-                        name="services"
-                        placeholder="Separe os serviços prestados por vírgula"
-                    >
-                </div>
-            </div>
-
-            <button type="submit">Salvar</button> <!--O submit significa que quando eu clicar no botão ele vai perceber que esta em um form e vai executar a ação de enviar-->
         </section>
     </form>
 
