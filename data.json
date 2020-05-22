@@ -16,6 +16,28 @@
       "birth": 875577600000,
       "gender": "M",
       "created_at": 1590171403239
+    },
+    {
+      "id": 3,
+      "avatar_url": "http://teste1",
+      "birth": 874800000000,
+      "name": "luis",
+      "email": "luis@gmail.com",
+      "blood": "O0",
+      "weight": "70",
+      "height": "180",
+      "gender": "M"
+    },
+    {
+      "id": 4,
+      "avatar_url": "http://teste2.com",
+      "birth": 1509321600000,
+      "name": "teste3",
+      "email": "teste3@gmail.com",
+      "blood": "AB0",
+      "weight": "50",
+      "height": "160",
+      "gender": "F"
     }
   ],
   "instructors": [

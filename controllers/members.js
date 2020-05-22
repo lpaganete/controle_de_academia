@@ -14,7 +14,7 @@ exports.create = function(req, res) {
 // *** CREATE ****/
 exports.post = function (req, res) {
 
-    //=== VALIDAÇÂO ===
+    //=== VALIDAÇÂO === verifica se todos os campos estão preenchidos
     const keys = Object.keys(req.body) //pega as chaves do array
 
     for (key of keys) {
@@ -25,26 +25,40 @@ exports.post = function (req, res) {
     }
 
     //desestruturando o req.body. O req.bory são os campos que vieram do form no front-end
-    let{ avatar_url, birth, name, services, gender} = req.body //usei a variavel let pois ela pode mudar
+    let{ 
+        avatar_url, 
+        birth, 
+        name,
+        email,
+        blood,
+        weight,
+        height, 
+        gender} = req.body //usei a variavel let pois ela pode mudar
 
 
     //=== TRATAMENTO DOS DADOS ===//
     birth = Date.parse(req.body.birth) //Mudando o formato da hr para milisegundos e trazendo para o data.json
-    const created_at = Date.now() //trazendo a data da hr de criação do cadastro do instrutorpois (não existe no front)
-    const id = Number(data.members.length + 1) //criando id para cada objeto. (não existe no front)
-
-
+    
+    // Definindo um id para cada 
+    let id = 1
+    const lastMember = data.members[data.members.length -1] //pegando o ultimo membro do array data.members
+    if (lastMember) {
+        id = lastMember.id + 1 //adicionando +1 ao ultimo 1d
+    }
+    
     //=== ENVIANDO DADOS PARA DENTRO DO DATA ===//
     //A cada vez que eu salvar ele irá armazenar os objetos dentro do data.json dentro de um array de objetos
     data.members.push({//usando o objeto JSON como um objeto JS
         
         id,
-        avatar_url,
+        avatar_url, 
+        birth, 
         name,
-        birth,
-        gender, 
-        services,
-        created_at,
+        email,
+        blood,
+        weight,
+        height, 
+        gender,
         
     }) 
 
