@@ -7,25 +7,25 @@
     <div class="card">
 
         <section class="avatar" 
-            style="background: url({{ instructor.avatar_url }}) no-repeat center center / cover">
+            style="background: url({{ member.avatar_url }}) no-repeat center center / cover">
         </section>
         
         <section class="details">
             <!-- Sobrescrevendo o método POST pelo metodo PUT-->
-            <form method="POST" action="/instructors?_method=PUT"> 
+            <form method="POST" action="/members?_method=PUT"> 
                 
-                <h3>Editar Instrutor</h3>
+                <h3>Editar Membro</h3>
 
-                {% include 'instructors/fields.njk' %} <!--Vai incluir um pedaço de código que está no arquvo fields.njk-->
+                {% include 'members/fields.njk' %} <!--Vai incluir um pedaço de código que está no arquvo fields.njk-->
 
-                <input type="hidden" name="id" value="{{ instructor.id}}"> <!-- Input "hidden" que não parece. Está pegando o id desse instrutor-->
+                <input type="hidden" name="id" value="{{ member.id}}"> <!-- Input "hidden" que não parece. Está pegando o id desse instrutor-->
             
             </form>
 
             <!-- Criando from para excluir -->
-            <form id="form-delete" action="/instructors?_method=DELETE" method="post">
+            <form id="form-delete" action="/members?_method=DELETE" method="post">
 
-                <input type="hidden" name="id" value={{instructor.id}}> 
+                <input type="hidden" name="id" value={{member.id}}> 
                 <button type="submit">Deletar</button>
 
             </form>
